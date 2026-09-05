@@ -1,0 +1,318 @@
+1. Why do we need OOP?
+_______________________________________________
+->OOP is useful when a program becomes large and complex, especially when it has many users or entities, each having their own data and actions.
+
+Instead of writing separate code for every user, we:
+Create a class once.
+Create multiple objects from the class.
+Reuse the same structure and methods.
+
+=>Example: Online Shopping
+-An online shopping application has many customers.
+
+Each customer has:
+Name
+Email
+Address
+Orders
+
+Each customer can:
+Place an order
+Cancel an order
+View orders
+
+We can create one Customer class and create many objects from it.
+
+2. Class:
+____________________
+A class is a blueprint or template used to create objects.
+
+A class contains:
+Attributes → Data/properties
+Methods → Actions/behavior
+=>Example: Mobile Phone
+class Mobile:
+    def __init__(self, brand, price):
+        self.brand = brand
+        self.price = price
+
+    def call(self):
+        print("Making a call")
+
+Here:
+Mobile → Class
+brand, price → Attributes
+call() → Method
+
+A class is like a design or blueprint.
+Simple definition:Class = Blueprint used to create objects.
+
+3. Object
+________________________
+An object is an instance of a class.
+
+In simple words:
+Object = Actual thing created using a class.
+
+Example:
+class Mobile:
+    def __init__(self, brand):
+        self.brand = brand
+mobile1 = Mobile("Samsung")
+mobile2 = Mobile("iPhone")
+
+Here:
+Mobile → Class
+mobile1 → Object/Instance
+mobile2 → Object/Instance
+Both objects are created from the same class but contain different data.
+
+Real-life example:
+Class → Mobile blueprint/design
+Object → Actual Samsung mobile
+Object → Actual iPhone mobile
+
+Remember:
+Class = Blueprint
+Object/Instance = Actual thing created from the blueprint
+
+4. Encapsulation
+____________________________
+Encapsulation means wrapping data and the methods that operate on that data together inside a class and controlling access to the data.
+
+Example: LinkedIn
+Imagine a LinkedIn user has:
+Name
+Email
+Password
+Profile
+Connections
+And can:
+Update profile
+Send connection requests
+Change password
+View profile
+
+class LinkedInUser:
+    def __init__(self, name, email, password):
+        self.name = name
+        self.email = email
+        self.__password = password
+
+    def change_password(self, old_password, new_password):
+        if old_password == self.__password:
+            self.__password = new_password
+            print("Password changed")
+        else:
+            print("Incorrect password")
+
+Here:
+name, email → Data
+__password → Private data
+change_password() → Method
+Data and methods are wrapped together inside the class.
+
+The password is not supposed to be directly changed by other parts of the program. It is accessed through a controlled method.
+
+Access levels in Python
+
+->Public
+self.name
+Normally accessible from outside.
+
+->Protected
+self._name
+Indicates that it is intended for internal/subclass use.
+
+->Private
+self.__password
+Uses name mangling and discourages direct access.
+
+Main benefit:
+Encapsulation provides controlled access to data and helps protect it.
+
+5. Inheritance
+_________________________
+Inheritance means a child class can acquire/reuse properties and methods from a parent class.
+The main purpose is code reusability.
+
+Example: LinkedIn
+Suppose LinkedIn has different types of users:
+
+User
+Recruiter
+Company
+All users can log in and log out.
+
+class User:
+    def login(self):
+        print("User logged in")
+
+    def logout(self):
+        print("User logged out")
+
+Now we create a child class:
+class Recruiter(User):
+    def post_job(self):
+        print("Job posted")
+Now Recruiter can use the methods of User:
+
+r = Recruiter()
+r.login()
+r.logout()
+r.post_job()
+The Recruiter class gets login() and logout() from User.
+
+Structure:
+        User
+          |
+      Recruiter
+User → Parent class
+Recruiter → Child class
+Remember:
+Inheritance = Child class reuses properties and methods of the parent class.
+
+Main benefit → Reusability
+
+6. Polymorphism
+___________________________
+Polymorphism means "many forms."
+It means the same method name can have different behavior depending on the object.
+Example: Payment
+Different payment methods can have a pay() method.
+
+class UPI:
+    def pay(self):
+        print("Payment through UPI")
+class Card:
+    def pay(self):
+        print("Payment through Card")
+class Cash:
+    def pay(self):
+        print("Payment through Cash")
+All three classes have the same method:
+pay()
+But the behavior is different.
+u = UPI()
+c = Card()
+cash = Cash()
+u.pay()
+c.pay()
+cash.pay()
+
+Output:
+Payment through UPI
+Payment through Card
+Payment through Cash
+Remember:
+Polymorphism = Same method, different behavior.
+Main benefit → Flexibility
+
+7. Abstraction
+________________________
+Abstraction means hiding unnecessary internal complexity and showing only the necessary functionality.
+Example: Mobile Phone(phn py:transferring money from one bank to another bank)
+
+When you make a phone call, you simply:
+Select contact → Press Call
+You don't need to know how the phone internally:
+
+Connects to the network
+Processes signals
+Communicates with the mobile tower
+
+Those complicated details are hidden from you.
+
+You only use the functionality you need.
+Remember:
+Abstraction = Hide internal complexity and show only the necessary functionality.
+Main benefit → Simplicity
+
+
+8.Attributes & types of Attributes
+_____________________________________
+->attributes are variables that belong to an object or a class. They store data related to that object or class.
+Types:
+1. Instance Attributes:
+Belong to a specific object (instance).
+Defined using self.
+Each object can have different values.
+
+2. Class Attributes:
+Belong to the class itself.
+Shared by all instances of the class.
+Defined directly inside the class.
+
+9.Methods:
+____________________________________
+A method is a function that is defined inside a class and is used to perform an action or operation on an object or class.
+Types:
+1. Instance Method
+Works with a particular object.
+Takes self as the first parameter.
+Can access and modify instance attributes.
+
+2. Class Method
+Works with the class, rather than a particular object.
+Takes cls as the first parameter.
+Uses the @classmethod decorator.
+Can access or modify class attributes.
+
+3. Static Method(helper functn)
+Does not depend on an object or class.
+Does not require self or cls.
+Uses the @staticmethod decorator.
+Usually performs a general-purpose operation related to the class.
+
+
+10. Accessing Attributes and Methods
+___________________________________________________________
+
+In Python, attributes and methods can be accessed mainly using:
+Object
+Class name
+Using Object
+
+->Through an object, we can access:
+Instance attributes
+Class attributes
+Instance methods
+Class methods
+Static methods
+
+->Using Class Name
+Through the class name, we can directly access:
+Class attributes
+Class methods
+Static methods
+
+11.Constructor
+________________________________________________________
+A constructor is a special method that is automatically executed when an object is created.
+In Python, the constructor is:
+__init__()
+->__init__() is mainly used to initialize the object's attributes when the object is created.
+
+12.Encapsulation
+__________________________________________________________
+Encapsulation means bundling data and methods together inside a class and controlling how the data is accessed.
+Python commonly uses:
+Public attributes
+Protected attributes
+Private attributes
+->Public Attribute:A public attribute can be accessed directly from outside the class.
+->Private Attribute:A private attribute is written using double underscore __.It is intended to be accessed inside the class rather than directly from outside.To access it, we can provide a method.To update we create a method.
+->Protected Attribute:A protected attribute is conventionally represented using a single underscore _.To access it we use a property and to update the property we use property.setter
+
+13.Inheritance
+____________________________________________________________
+Inharitance allows one class to acquire/reuse the properties and methods of another class.
+Parent class / Superclass → class being inherited from
+Child class / Subclass → class that inherits
+Types:
+_________
+1.Single Inheritance:A->B
+2.Multiple Inheritance:A,B,C->D
+3.Multilevel Inheritance:A->B->C
+4.Hierarchical Inheritance:A->B,C,D
+5.Hybrid Inheritence:Combination of any two inheritances
