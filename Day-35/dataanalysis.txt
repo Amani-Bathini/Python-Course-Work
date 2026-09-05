@@ -1,0 +1,37 @@
+                 Data Analysis
+          ____________________________
+
+## What is Data Analysis?
+Data Analysis is the process of **examining, cleaning, organizing, and interpreting data** to find useful information and make better decisions.
+
+## Why do we need Data Analysis?
+* To understand data
+* To identify patterns and trends
+* To find problems
+* To make better decisions
+* To predict future outcomes
+* To take appropriate actions
+
+## Types of Data Analysis
+__________________________________
+### 1. Descriptive Analysis
+Descriptive analysis focuses on understanding and summarizing past and present data.
+**Question:** What happened?
+**Purpose:** Understand and summarize past data.
+
+### 2. Diagnostic Analysis
+Diagnostic analysis goes one step further.
+**Question:** Why did it happen?
+**Purpose:** Find the reasons or causes behind an event.
+
+### 3. Predictive Analysis
+Predictive analysis uses historical data, statistical techniques, and AI/ML models to estimate what is likely to happen in the future.
+**Question:** What will happen?
+**Purpose:** Predict future outcomes using **historical data, statistics, and AI/ML models**.
+
+### 4. Prescriptive Analysis
+Prescriptive analysis goes beyond prediction.
+It uses data, predictions, rules, optimization, and sometimes AI to recommend what action should be taken.
+**Question:** What should we do?
+**Purpose:** Suggest the best actions or plans based on data and predictions.
+
